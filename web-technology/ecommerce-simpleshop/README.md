@@ -19,7 +19,7 @@ Visitors can log in and explore the full application using these credentials:
 | Field    | Value                  |
 |----------|------------------------|
 | Email    | demo@simpleshop.com    |
-| Password | Demo@1234              |
+| Password | password            |
 
 ---
 
