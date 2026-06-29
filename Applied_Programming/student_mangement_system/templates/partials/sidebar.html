@@ -1,0 +1,57 @@
+<div class="sidebar-card p-3">
+  <div class="mb-3 px-2 pt-2">
+    <div class="small text-uppercase text-muted fw-semibold">Navigation</div>
+    <h5 class="mt-1 mb-0 fw-bold">Student Portal</h5>
+  </div>
+
+  <div class="list-group list-group-flush gap-2">
+    <a
+      href="{% url 'dashboard' %}"
+      class="list-group-item list-group-item-action sidebar-link {% if request.path == '/' %}active{% endif %}"
+    >
+      🏠 Dashboard
+    </a>
+    <a
+      href="{% url 'student_list' %}"
+      class="list-group-item list-group-item-action sidebar-link {% if '/students/' in request.path %}active{% endif %}"
+    >
+      👨‍🎓 Students
+    </a>
+    <a
+      href="{% url 'course_list' %}"
+      class="list-group-item list-group-item-action sidebar-link {% if '/courses/' in request.path %}active{% endif %}"
+    >
+      📚 Courses
+    </a>
+    <a
+      href="{% url 'subject_list' %}"
+      class="list-group-item list-group-item-action sidebar-link {% if '/subjects/' in request.path %}active{% endif %}"
+    >
+      📖 Subjects
+    </a>
+    <a
+      href="{% url 'faculty_list' %}"
+      class="list-group-item list-group-item-action sidebar-link {% if '/faculties/' in request.path %}active{% endif %}"
+    >
+      👨‍🏫 Faculties
+    </a>
+    <a
+      href="{% url 'enrollment_list' %}"
+      class="list-group-item list-group-item-action sidebar-link {% if '/enrollments/' in request.path %}active{% endif %}"
+    >
+      📝 Enrollments
+    </a>
+    <a
+      href="{% url 'exam_list' %}"
+      class="list-group-item list-group-item-action sidebar-link {% if '/exams/' in request.path %}active{% endif %}"
+    >
+      📄 Exams
+    </a>
+    <a
+      href="{% url 'result_list' %}"
+      class="list-group-item list-group-item-action sidebar-link {% if '/results/' in request.path %}active{% endif %}"
+    >
+      🏆 Results
+    </a>
+  </div>
+</div>

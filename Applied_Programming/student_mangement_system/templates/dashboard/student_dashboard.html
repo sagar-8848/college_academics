@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mb-4">
+
+    <h1 class="page-title">
+        👋 Welcome, {{ student.full_name }}
+    </h1>
+
+    <p class="text-muted">
+        Student Portal
+    </p>
+
+</div>
+
+<div class="row g-4">
+
+    <div class="col-md-6">
+
+        <div class="metric-card p-4 h-100">
+
+            <h5>👤 My Profile</h5>
+
+            <hr>
+
+            <p><strong>Roll No:</strong> {{ student.roll_number }}</p>
+
+            <p><strong>Semester:</strong> {{ student.semester }}</p>
+
+            <p><strong>Email:</strong> {{ student.email }}</p>
+
+            <p><strong>Phone:</strong> {{ student.phone }}</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="metric-card p-4 h-100">
+
+            <h5>📚 Academic Summary</h5>
+
+            <hr>
+
+            <p><strong>Enrollments:</strong> {{ total_enrollments }}</p>
+
+            <p><strong>Exams:</strong> {{ total_exams }}</p>
+
+            <p><strong>Results:</strong> {{ total_results }}</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

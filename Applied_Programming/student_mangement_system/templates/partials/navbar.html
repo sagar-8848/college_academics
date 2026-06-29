@@ -1,0 +1,57 @@
+<nav
+  class="navbar navbar-expand-lg navbar-dark app-navbar sticky-top shadow-sm"
+>
+  <div class="container-fluid px-lg-4 px-3">
+    <div class="d-flex align-items-center gap-2">
+      <button
+        class="btn btn-outline-light d-lg-none"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#mobileSidebar"
+        aria-controls="mobileSidebar"
+      >
+        Menu
+      </button>
+      <a
+        class="navbar-brand app-brand ms-2 ms-lg-0"
+        href="{% url 'dashboard' %}"
+        >Student MS</a
+      >
+    </div>
+
+    <div
+      class="d-flex align-items-center gap-2 ms-auto flex-wrap justify-content-end"
+    >
+      <a class="btn btn-outline-light btn-sm" href="{% url 'student_list' %}"
+        >Students</a
+      >
+      <a class="btn btn-outline-light btn-sm" href="{% url 'course_list' %}"
+        >Courses</a
+      >
+      <a class="btn btn-outline-light btn-sm" href="{% url 'subject_list' %}"
+        >Subjects</a
+      >
+      <a class="btn btn-outline-light btn-sm" href="{% url 'result_list' %}"
+        >Results</a
+      >
+    </div>
+  </div>
+</nav>
+
+<div
+  class="offcanvas offcanvas-start"
+  tabindex="-1"
+  id="mobileSidebar"
+  aria-labelledby="mobileSidebarLabel"
+>
+  <div class="offcanvas-header border-bottom">
+    <h5 class="offcanvas-title" id="mobileSidebarLabel">Student MS</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body">{% include 'partials/sidebar.html' %}</div>
+</div>

@@ -1,0 +1,117 @@
+{% extends "base.html" %} {% block content %}
+<div
+  class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4"
+>
+  <div>
+    <h1 class="page-title mb-1">Dashboard</h1>
+    <p class="text-muted mb-0">
+      Overview of students, academics, and assessment records.
+    </p>
+  </div>
+  <div class="d-flex flex-wrap gap-2">
+    {% if perms.students.add_student %}
+    <a href="{% url 'add_student' %}" class="btn btn-primary">
+      ➕ Add Student
+    </a>
+    {% endif %} {% if perms.results.add_result %}
+    <a href="{% url 'add_result' %}" class="btn btn-outline-secondary">
+      🏆 Add Result
+    </a>
+    {% endif %}
+  </div>
+</div>
+
+<div class="row g-4 mb-4">
+  <div class="col-6 col-xl-3">
+    <a href="{% url 'student_list' %}" class="text-decoration-none">
+      <div class="metric-card p-4 h-100">
+        <div class="text-muted small text-uppercase fw-semibold">Students</div>
+        <h2 class="mt-2">{{ total_students }}</h2>
+      </div>
+    </a>
+  </div>
+  <div class="col-6 col-xl-3">
+    <a href="{% url 'course_list' %}" class="text-decoration-none">
+      <div class="metric-card p-4 h-100">
+        <div class="text-muted small text-uppercase fw-semibold">Courses</div>
+        <h2 class="mt-2">{{ total_courses }}</h2>
+      </div>
+    </a>
+  </div>
+  <div class="col-6 col-xl-3">
+    <a href="{% url 'subject_list' %}" class="text-decoration-none">
+      <div class="metric-card p-4 h-100">
+        <div class="text-muted small text-uppercase fw-semibold">Subjects</div>
+        <h2 class="mt-2">{{ total_subjects }}</h2>
+      </div>
+    </a>
+  </div>
+  <div class="col-6 col-xl-3">
+    <a href="{% url 'faculty_list' %}" class="text-decoration-none">
+      <div class="metric-card p-4 h-100">
+        <div class="text-muted small text-uppercase fw-semibold">Faculty</div>
+        <h2 class="mt-2">{{ total_faculties }}</h2>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="row g-4">
+  <div class="col-lg-7">
+    <div class="panel-card p-4 h-100">
+      <h4 class="mb-3">Quick Actions</h4>
+      <div class="d-flex flex-wrap gap-2">
+        {% if perms.students.add_student %}
+        <a href="{% url 'add_student' %}" class="btn btn-primary">
+          ➕ Add Student
+        </a>
+        {% endif %} {% if perms.courses.add_course %}
+        <a href="{% url 'add_course' %}" class="btn btn-outline-secondary">
+          📚 Add Course
+        </a>
+        {% endif %} {% if perms.subjects.add_subject %}
+        <a href="{% url 'add_subject' %}" class="btn btn-outline-secondary">
+          📖 Add Subject
+        </a>
+        {% endif %} {% if perms.faculties.add_faculty %}
+        <a href="{% url 'add_faculty' %}" class="btn btn-outline-secondary">
+          👨‍🏫 Add Faculty
+        </a>
+        {% endif %} {% if perms.enrollments.add_enrollment %}
+        <a href="{% url 'add_enrollment' %}" class="btn btn-outline-secondary">
+          📝 Add Enrollment
+        </a>
+        {% endif %} {% if perms.exams.add_exam %}
+        <a href="{% url 'add_exam' %}" class="btn btn-outline-secondary">
+          📄 Add Exam
+        </a>
+        {% endif %} {% if perms.results.add_result %}
+        <a href="{% url 'add_result' %}" class="btn btn-outline-secondary">
+          🏆 Add Result
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="panel-card p-4 h-100">
+      <h4 class="mb-3">System Overview</h4>
+      <div class="d-grid gap-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="text-muted">Enrollments</span
+          ><strong>{{ total_enrollments }}</strong>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="text-muted">Exams</span
+          ><strong>{{ total_exams }}</strong>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="text-muted">Results</span
+          ><strong>{{ total_results }}</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
